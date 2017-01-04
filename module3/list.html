@@ -1,0 +1,12 @@
+<div class="success" style="margin-top: 90px;">
+  <ul>
+    <li ng-repeat="item in Narrow.foundItem">
+      <div class="alert alert-info" role="alert">
+        name: {{item.name}}, short name: {{item.short_name}}, description: {{item.description}}
+      <button class="btn btn-primary" ng-click="Narrow.onRemove({index: $index});">Don't want this one!</button>
+      <!--<button class="btn btn-primary">Don't want this one!</button>-->
+
+    </div>
+  </li>
+  </ul>
+</div>
