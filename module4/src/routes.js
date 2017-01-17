@@ -24,8 +24,10 @@
       controller: 'MainListController as mainList',
       //resolve
       resolve: {
-        items: ['MenuDataService', function (MenuDataService) {
-          console.log("data resolved");
+        items: ['$rootScope','MenuDataService', function ($rootScope, MenuDataService) {
+          //console.log("data resolved");
+          var obj = $rootScope.$broadcast('shoppinglist:processing', {on: true});
+          console.log("ON:", obj);
           return MenuDataService.getAllCategories();
         }]
       }
@@ -52,9 +54,11 @@
       templateUrl: 'src/template/item-details-comp.template.html',
       controller: 'ItemDetailController as itemDetail',
       resolve: {
-            items: ['$stateParams', 'MenuDataService',
-                  function ($stateParams, MenuDataService) {
-                    console.log($stateParams.itemId);
+            items: ['$rootScope', '$stateParams', 'MenuDataService',
+                  function ($rootScope, $stateParams, MenuDataService) {
+                    //console.log($stateParams.itemId);
+                    $rootScope.$broadcast('shoppinglist:processing', {on: true});
+                    
                     return MenuDataService.getItemsForCategory($stateParams.itemId);
                   }]
           }
