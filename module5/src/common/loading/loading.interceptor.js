@@ -41,8 +41,10 @@ function LoadingHttpInterceptor($rootScope, $q) {
         $rootScope.$broadcast(loadingEventName, {on: false});
       }
 
-      return $q.reject(response);
+      return (response);
     }
+
+
   };
 }
 

@@ -27,6 +27,16 @@ function MenuService($http, ApiPath) {
     });
   };
 
+  service.checkItem = function(item){
+
+    return $http.get(ApiPath + '/menu_items/'+ item +'.json').then(function (response) {
+      console.log("ch", response.data);
+      return response;
+    });
+
+  };
+
+
 }
 
 
