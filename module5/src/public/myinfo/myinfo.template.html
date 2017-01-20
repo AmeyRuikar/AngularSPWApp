@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="alert alert-danger" ng-if="!myInfoCtrl.signedup">
+    <strong> Not Signed Up Yet. </strong> <a ui-sref="public.signup" >Sign up Now!</a>
+  </div>
+
+  <div  ng-if="myInfoCtrl.signedup" style="margin: 20px; font-size: 1.4em; padding: 20px;">
+    <p class="bg-primary" style="margin: 20px; font-size: 1.4em; padding: 20px;">
+
+      <strong>Hello {{myInfoCtrl.obj.fname}} {{myInfoCtrl.obj.lname}}!</strong>
+      <br/>
+      <strong>Contact: {{myInfoCtrl.obj.contact}}</strong>
+      <br/>
+      <strong>E-mail: {{myInfoCtrl.obj.email}}</strong>
+      <br/>
+      <strong>Favorite Menu item: {{myInfoCtrl.obj.favItem}}</strong>
+      <br/>
+      <strong>Item title: {{myInfoCtrl.moreInfo.name}}</strong>
+      <br/>
+      <strong>Item description: {{myInfoCtrl.moreInfo.description}}</strong>
+      <br/>
+      <img style="margin: 30px;"
+           src="https://res-app-server.herokuapp.com/images/{{myInfoCtrl.obj.favItem}}.jpg"
+           alt="{{myInfoCtrl.moreInfo.name}}">
+      </img>
+
+    </p>
+
+  </div>
+
+
+</div>
